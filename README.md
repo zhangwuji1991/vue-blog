@@ -1,16 +1,12 @@
 # 网站版本更新
 
-> this is my website start at 2014-7-19
 
-## 演示地址   www.daiwei.org
 
 ## 网页截图
 
 首页
 ![](https://github.com/IFmiss/vue-website/blob/master/static/testimg/w1.jpg)
 
-状态  
-![](https://github.com/IFmiss/vue-website/blob/master/static/testimg/w2.jpg)
 
 音乐  
 ![](https://github.com/IFmiss/vue-website/blob/master/static/testimg/w3.jpg)
@@ -49,4 +45,6 @@ vuex  axios swiper vue-router 等等
 * 每日一笑
 * 个人动态展示，可发表文字，图片信息，之后有打算做音乐分享的功能
 * 网站设置同步本地存储，包括音乐收藏列表
+
+## 转
 
