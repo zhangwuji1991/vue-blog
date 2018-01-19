@@ -5,9 +5,9 @@
           <h1 class="title" key="title">
             {{imageInfo.title}}
             <span v-if="imageInfo.date">{{(imageInfo.date).split(' ')[0]}}</span> 
-            <span class="playpause" @click="playpause" v-if="imageInfo.musicUrl" :title="imageInfo.musicName">
+            <!-- <span class="playpause" @click="playpause" v-if="imageInfo.musicUrl" :title="imageInfo.musicName">
               <i class="icon-volume-medium"></i>{{isPlay ? '暂停' : '播放'}}
-            </span>
+            </span> -->
           </h1>
           <p class="disc" key="disc">{{imageInfo.disc}}</p>
         </div>
@@ -38,6 +38,7 @@
 <script>
 import store from '../store'
 import fecth from '../utils/fecth.js'
+import { getbzs } from '../api/api'
 export default {
   data () {
     return {
@@ -120,20 +121,27 @@ export default {
       if (type === 0) {
         this.index = 0
       }
-
+      // console.log(getbzs)
       var index = this.index
+      // const urls = 'http://localhost:8888'
       // const url = 'http://www.daiwei.org/vue/server/home.php?inAjax=1&do=getHomeImage'
-      const url = '../static/imgdata.json'
-      fecth.get(url).then((res) => {
+      // const url = '../static/imgdata.json'
+      let para = {
+          use: 'vue-blog'
+      }
+      getbzs(para).then((res) => {
+      //  console.log(res.data)
+      // })
+      // fecth.get(url).then((res) => {
         let imageInfo = {}
         console.log(res)
         imageInfo.type = 'home'
-        imageInfo.url = res.data[index].url
-        imageInfo.title = res.data[index].title
-        imageInfo.disc = res.data[index].disc
-        imageInfo.date = res.data[index].date
-        imageInfo.musicName = res.data[index].musicName
-        imageInfo.musicUrl = res.data[index].musicUrl
+        imageInfo.url = 'http://localhost:8888' + res.data[index].bzImg
+        imageInfo.title = res.data[index].city
+        imageInfo.disc = res.data[index].content
+        imageInfo.date = res.data[index].addTime
+        // imageInfo.musicName = res.data[index].musicName
+        // imageInfo.musicUrl = res.data[index].musicUrl
         imageInfo.index = index
 
         store.dispatch({

@@ -1,6 +1,6 @@
 <template>
   <div id="app" @resize="isApp">
-    <loader :isshow="getShowLoading" loaderbackground="rgba(0,0,0,0.3)"></loader>
+    <!-- <loader :isshow="getShowLoading" loaderbackground="rgba(0,0,0,0.3)"></loader> -->
     <div class="maincontent">
       <fixed-bg v-if="imageInfo.url && imageSetting" :imagepath="imagePrevPath +'' + imageInfo.url" :maskcolor="getGlobalStyle.contentInfo.bgcolor" :maskopacity="getGlobalStyle.contentInfo.opacity"></fixed-bg>
     </div>
